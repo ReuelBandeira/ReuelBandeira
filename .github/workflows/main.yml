@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Clonar o repositório
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Rodar a Action para gerar a animação
       - uses: Platane/snk@master
@@ -21,12 +21,12 @@ jobs:
           svg_out_path: dist/github-contribution-grid-snake.svg
 
       # Realizar push das mudanças
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Commit and Push changes
+        uses: github-actions-x/commit@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "Atualização automática do Snake Game"
           branch: master
-          force: true
 
       # Publicar a animação na branch 'output'
       - uses: crazy-max/ghaction-github-pages@v2.1.3
