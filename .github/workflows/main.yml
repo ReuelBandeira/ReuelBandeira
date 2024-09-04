@@ -18,10 +18,15 @@ jobs:
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
+      - name: List directory contents
+        run: |
+          ls -la dist/
+          echo "Conteúdo do diretório dist:"
+          find dist/ -type f -print
+
       - name: Check generated files
         run: |
           mkdir -p dist  # Garante que o diretório dist exista
-          ls -la dist/
           if [ -f dist/github-contribution-grid-snake.gif ] && [ -f dist/github-contribution-grid-snake.svg ]; then
             echo "Arquivos gerados encontrados."
           else
