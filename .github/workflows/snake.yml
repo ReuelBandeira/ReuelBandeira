@@ -1,15 +1,3 @@
-Skip to content
-DEV Community
-Find related posts...
-Powered by  Algolia
-Log in
-Create account
-
-0
-Jump to Comments
-7
-Save
-
 Cover image for Como adicionar o Snake Game (jogo da cobrinha) no seu perfil do Github 🐍
 Henrique Lopes
 Henrique Lopes
@@ -119,15 +107,12 @@ Codigo Github para utilização:
 
 ![snake gif](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/blob/output/github-contribution-grid-snake.svg)
 
-👋 Before you go
+💡 One last tip before you go
 
-Do your career a big favor. Join DEV. (The website you're on right now)
+Tired of spending so much on your side projects? 😒
+We have created a membership program that helps cap your costs so you can build and experiment for less. And we currently have early-bird pricing which makes it an even better value! 🐥
 
-It takes one minute, it's free, and is worth it for your career.
-
-Get started
-
-Community matters
+Check out DEV++
 
 Top comments (0)
 Subscribe
@@ -138,12 +123,12 @@ profile
 Auth0
 Promoted
 
-Auth0
+Auth0 image
 
-👋 Want 4 out-of-the-box templates to implement best-in-class Adaptive MFA?
-Get your hands on Actions - a drag-and-drop pro-code/no-code logic that you can customize for your own applications and integrations that start with Identity.
+Calling all devs: Explore all that is possible to build and secure in 24 hours.
+Join us September 24 to explore all that is possible to build and secure with Auth0 by Okta.
 
-Learn more
+Register now
 
 Read next
 samarpitnandanwar profile image
@@ -182,12 +167,12 @@ profile
 Auth0
 Promoted
 
-Auth0 + Vercel
+Auth0 image
 
-Ready, set, deploy!
-With Auth0 and Vercel, your app goes from zero to hero in record time. 🚀
+Calling all devs: Explore all that is possible to build and secure in 24 hours.
+Join us September 24 to explore all that is possible to build and secure with Auth0 by Okta.
 
-Learn more
+Register now
 
 # Nome da Actions:  
 name: Snake Game
@@ -214,7 +199,7 @@ jobs:
       - uses: Platane/snk@master
         id: snake-gif
         with:
-          github_user_name: nomeUsuario #Seu usuario
+          github_user_name: ReuelBandeira #Seu usuario
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
@@ -235,27 +220,3 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-Thank you to our Diamond Sponsor Neon for supporting our community.
-
-DEV Community — A constructive and inclusive social network for software developers. With you every step of your journey.
-
-Home
-DEV++
-Podcasts
-Videos
-Tags
-DEV Help
-Forem Shop
-Advertise on DEV
-DEV Challenges
-DEV Showcase
-About
-Contact
-Guides
-Software comparisons
-Code of Conduct
-Privacy Policy
-Terms of use
-Built on Forem — the open source software that powers DEV and other inclusive communities.
-
-Made with love and Ruby on Rails. DEV Community © 2016 - 2024.
