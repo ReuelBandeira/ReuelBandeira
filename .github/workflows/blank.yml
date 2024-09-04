@@ -16,7 +16,7 @@ jobs:
       - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
-          github_user_name: reuel-bandeira  # Substitua pelo seu nome de usuário no GitHub.
+          github_user_name: ReuelBandeira  # Substitua pelo seu nome de usuário no GitHub.
           outputs: dist/snake.svg
 
       - name: Deploy Snake Animation
