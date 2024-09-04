@@ -16,12 +16,15 @@ jobs:
           mkdir -p dist
           echo "Diretório dist criado ou já existe."
 
-      - uses: Platane/snk@v3
-        id: snake-gif
+      - name: Generate snake game images
+        uses: Platane/snk@v3
+        id: generate-images
         with:
           github_user_name: ReuelBandeira
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       - name: List contents of the dist directory
         run: |
