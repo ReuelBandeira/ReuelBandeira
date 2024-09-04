@@ -16,11 +16,9 @@ jobs:
       - uses: Platane/snk@v2.0.0
         id: snake-gif
         with:
-          github_user_name: ReuelBandeira  
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          github_user_name: ReuelBandeira  # Substitua pelo seu nome de usuário
 
-      # Realizar commit e push das mudanças
+      # Commit e push das mudanças
       - name: Commit and Push changes
         run: |
           git config --local user.email "action@github.com"
