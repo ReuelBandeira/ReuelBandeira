@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Ensure the dist directory exists
+        run: |
+          mkdir -p dist
+          echo "Diretório dist criado ou já existe."
+
       - uses: Platane/snk@v3
         id: snake-gif
         with:
@@ -18,20 +23,19 @@ jobs:
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
-      - name: List directory contents
+      - name: List contents of the dist directory
         run: |
-          ls -la dist/
           echo "Conteúdo do diretório dist:"
+          ls -la dist/
           find dist/ -type f -print
 
-      - name: Check generated files
+      - name: Check if generated files exist
         run: |
-          mkdir -p dist  # Garante que o diretório dist exista
           if [ -f dist/github-contribution-grid-snake.gif ] && [ -f dist/github-contribution-grid-snake.svg ]; then
             echo "Arquivos gerados encontrados."
           else
             echo "Arquivos gerados não encontrados."
-            exit 1  # Sai com erro se os arquivos não foram gerados
+            exit 1
           fi
 
       - name: Configure Git
@@ -39,7 +43,7 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Force commit changes
+      - name: Add and force commit changes
         run: |
           git add dist/
           git commit -m "Atualizando arquivos de contribuição" || echo "Nada a commitar"
