@@ -20,13 +20,14 @@ jobs:
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
-      # Realizar push das mudanças
+      # Realizar commit e push das mudanças
       - name: Commit and Push changes
-        uses: github-actions-x/commit@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "Atualização automática do Snake Game"
-          branch: master
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Atualização automática do Snake Game" || echo "Nenhuma mudança para commitar"
+          git push origin master
 
       # Publicar a animação na branch 'output'
       - uses: crazy-max/ghaction-github-pages@v2.1.3
