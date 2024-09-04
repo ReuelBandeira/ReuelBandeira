@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v3
 
       # Rodar a Action para gerar a animação
-      - uses: Platane/snk@master
+      - uses: Platane/snk@v2.0.0
         id: snake-gif
         with:
-          github_user_name: ReuelBandeira  # Substitua pelo seu nome de usuário
+          github_user_name: ReuelBandeira  
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
