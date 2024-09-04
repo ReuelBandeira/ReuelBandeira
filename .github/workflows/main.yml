@@ -2,8 +2,8 @@ name: Snake Game
 
 on:
   schedule:
-    - cron: "0 */5 * * *"
-  workflow_dispatch:
+    - cron: "0 */5 * * *"  # Atualiza a cada 5 horas
+  workflow_dispatch:  # Permite executar manualmente
 
 jobs:
   build:
@@ -32,15 +32,6 @@ jobs:
           ls -la dist/
           find dist/ -type f -print
 
-      - name: Check if generated files exist
-        run: |
-          if [ -f dist/github-contribution-grid-snake.gif ] && [ -f dist/github-contribution-grid-snake.svg ]; then
-            echo "Arquivos gerados encontrados."
-          else
-            echo "Arquivos gerados não encontrados."
-            exit 1
-          fi
-
       - name: Configure Git
         run: |
           git config --global user.email "actions@github.com"
@@ -50,9 +41,7 @@ jobs:
         run: |
           git add dist/
           git commit -m "Atualizando arquivos de contribuição" || echo "Nada a commitar"
-          git push origin HEAD:master --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ReuelBandeira/ReuelBandeira.git HEAD:main --force
 
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
