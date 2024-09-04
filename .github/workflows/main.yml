@@ -2,40 +2,46 @@ name: Snake Game
 
 on:
   schedule:
-    # Atualizado a cada 5 horas.
     - cron: "0 */5 * * *"
-
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checks repo under $GITHUB_WORKSHOP, so your job can access it
       - uses: actions/checkout@v4
 
-      # Repositório que será utilizado para gerar os arquivos.
       - uses: Platane/snk@v3
         id: snake-gif
         with:
-          github_user_name: ReuelBandeira #Seu usuário
+          github_user_name: ReuelBandeira
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
 
-      - run: git status
+      - name: Check generated files
+        run: |
+          mkdir -p dist  # Garante que o diretório dist exista
+          ls -la dist/
+          if [ -f dist/github-contribution-grid-snake.gif ] && [ -f dist/github-contribution-grid-snake.svg ]; then
+            echo "Arquivos gerados encontrados."
+          else
+            echo "Arquivos gerados não encontrados."
+            exit 1  # Sai com erro se os arquivos não foram gerados
+          fi
 
-      # Para as atualizações.
-      - name: Commit and Push changes
+      - name: Configure Git
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
+
+      - name: Force commit changes
+        run: |
           git add dist/
-          git commit -m "Atualização automática do Snake Game" || echo "Nada a commitar"
-          git push origin HEAD:master
+          git commit -m "Atualizando arquivos de contribuição" || echo "Nada a commitar"
+          git push origin HEAD:master --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Publicar no GitHub Pages
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
