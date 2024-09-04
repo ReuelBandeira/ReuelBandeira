@@ -1,4 +1,4 @@
-name: Snake Game
+name: Generate Snake Animation
 
 on:
   schedule:
@@ -8,15 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       # Clonar o repositório
       - uses: actions/checkout@v3
 
       # Rodar a Action para gerar a animação
       - uses: Platane/snk@v2.0.0
-        id: snake-gif
+        id: generate-snake
         with:
           github_user_name: ReuelBandeira  # Substitua pelo seu nome de usuário
+          outputs: |
+            gif_out_path=output/snake.gif
+            svg_out_path=output/snake.svg
 
       # Commit e push das mudanças
       - name: Commit and Push changes
